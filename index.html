@@ -19,28 +19,31 @@
         <input type="text" class="form-control" id="keyword" placeholder="Enter the keyword"/>
       </br>
 
-      <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Bedrooms</label>
-      <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-        <option selected>Choose...</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="3">4</option>
-      </select>
-      </br>
+      <div class="form-inline">
+        <label class="my-1 mr-2" for="bedroomSelect">Bedrooms</label>
+        <select class="custom-select my-1 mr-sm-2" id="bedroomSelect">
+          <option selected>Choose...</option>
+          <option value="one">1</option>
+          <option value="two">2</option>
+          <option value="three">3</option>
+          <option value="four">4</option>
+        </select>
+        </br>
 
-      <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Bathrooms</label>
-      <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-        <option selected>Choose...</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-      </select>
-      </br></br>
-
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-        <label class="form-check-label" for="inlineCheckbox3">Available Now</label>
+        <label class="my-1 mr-2 ml-5" for="bathroomSelect">Bathrooms</label>
+        <select class="custom-select my-1 mr-sm-2" id="bathroomSelect">
+          <option selected>Choose...</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+        </br></br>
       </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+          <label class="form-check-label" for="inlineCheckbox3">Available Now</label>
+        </div>
+
 
       </br></br>
       <button type="search" class="btn btn-primary my-1" id="search">Search</button>
@@ -52,7 +55,9 @@
     </form>
 
         <div class="container">
-            <h1 id="houses"><h1>
+            <div id="result" class="row">
+            </div>
+
         </div>
     </br></br>
 

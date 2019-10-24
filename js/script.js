@@ -135,11 +135,10 @@ var houses = [
 
 function allHouses(){
 for (var i=0; i<houses.length; i++) {
-  document.getElementById('houses').innerHTML
-   += '<div class="row">'
-   + '<div class="col">'
+  document.getElementById('result').innerHTML
+   += '<div class="col-4">'
    + '</br><div class="card" style="width: 23rem;">'
-   += '<img class="img-thumbnail imgSize" src=" ' + houses[i].photo + ' " alt="House"/>'
+   + '<img class="img-thumbnail imgSize" src=" ' + houses[i].photo + ' " alt="House"/>'
    + '<div class="card-body">'
    + '<h3 class="card-title text-danger">' + houses[i].name + '</h3>'
    + '<h5> Address:  ' + houses[i].address + ' </h5>'
@@ -149,21 +148,21 @@ for (var i=0; i<houses.length; i++) {
    + '<h5> Parking :  ' + houses[i].parking + ' </h5>'
    + '<h5> Furnishing :  ' + houses[i].furnishing + ' </h5>'
    + '<h5> Couple :  ' + houses[i].couple + ' </h5>'
-   + '<h5> Availability :  ' + houses[i].availablity + ' </h5>'
+   + '<h5> Availability :  ' + houses[i].availability + ' </h5>'
    + '</div>'
    + '</div>'
    + '</div>'
    + '</div>';
+
  }
 }
 
 document.getElementById('showCouple').addEventListener('click', function(){
-  document.getElementById('houses').innerHTML = '';
+  document.getElementById('result').innerHTML = '';
   for (var i = 0; i < houses.length; i++) {
     if (houses[i].couple === "yes") {
-      document.getElementById('houses').innerHTML
-      += '<div class="row">'
-      + '<div class="col">'
+      document.getElementById('result').innerHTML
+      += '<div class="col-4">'
       + '</br><div class="card" style="width: 23rem;">'
       + '<img class="img-thumbnail imgSize" src=" ' + houses[i].photo + ' " alt="House"/>'
       + '<div class="card-body">'
@@ -175,7 +174,7 @@ document.getElementById('showCouple').addEventListener('click', function(){
       + '<h5> Parking :  ' + houses[i].parking + ' </h5>'
       + '<h5> Furnishing :  ' + houses[i].furnishing + ' </h5>'
       + '<h5> Couple :  ' + houses[i].couple + ' </h5>'
-      + '<h5> Availability :  ' + houses[i].availablity + ' </h5>'
+      + '<h5> Availability :  ' + houses[i].availability + ' </h5>'
       + '</div>'
       + '</div>'
       + '</div>'
@@ -185,12 +184,11 @@ document.getElementById('showCouple').addEventListener('click', function(){
 });
 
 document.getElementById('showParking').addEventListener('click', function(){
-  document.getElementById('houses').innerHTML = '';
+  document.getElementById('result').innerHTML = '';
   for (var i = 0; i < houses.length; i++) {
     if (houses[i].parking === "yes") {
-      document.getElementById('houses').innerHTML
-      += '<div class="row">'
-      + '<div class="col">'
+      document.getElementById('result').innerHTML
+      += '<div class="col-4">'
       + '</br><div class="card" style="width: 23rem;">'
       + '<img class="img-thumbnail imgSize" src=" ' + houses[i].photo + ' " alt="House"/>'
       + '<div class="card-body">'
@@ -202,7 +200,7 @@ document.getElementById('showParking').addEventListener('click', function(){
       + '<h5> Parking :  ' + houses[i].parking + ' </h5>'
       + '<h5> Furnishing :  ' + houses[i].furnishing + ' </h5>'
       + '<h5> Couple :  ' + houses[i].couple + ' </h5>'
-      + '<h5> Availability :  ' + houses[i].availablity + ' </h5>'
+      + '<h5> Availability :  ' + houses[i].availability + ' </h5>'
       + '</div>'
       + '</div>'
       + '</div>'
@@ -210,6 +208,78 @@ document.getElementById('showParking').addEventListener('click', function(){
     }
   }
 });
+
+
+document.getElementById('bedroomSelect').addEventListener('click', function(){
+  document.getElementById('result').innerHTML = '';
+  var x = document.getElementById('bedroomSelect').value;
+  console.log(typeof(x));
+
+  switch (x) {
+    case 'one' :
+    checkDisplay('1');
+    break;
+
+    case 'two' :
+    checkDisplay('2');
+    break;
+
+    case 'three' :
+    checkDisplay('3');
+    break;
+
+    case 'four' :
+    checkDisplay('4');
+    break;
+
+    default:
+    break;
+  }
+
+console.log(x);
+});
+
+
+
+function checkDisplay(roomNumber){
+  console.log(roomNumber);
+  for (var i = 0; i < houses.length; i++){
+    if (houses[i].bedroom === roomNumber) {
+      displayRoom(i);
+    console.log(house[i].bedroom);
+    }
+  }
+}
+
+
+
+
+function displayRoom(j){
+  document.getElementById('result').innerHTML
+//  += '<div class="row">'
+  += '<div class="col-4">'
+  + '</br><div class="card" style="width: 23rem;">'
+  + '<img class="img-thumbnail imgSize" src=" ' + houses[i].photo + ' " alt="House"/>'
+  + '<div class="card-body">'
+  + '<h3 class="card-title text-danger">' + houses[i].name + '</h3>'
+  + '<h5> Address:  ' + houses[i].address + ' </h5>'
+  + '<h5> Rent / week : $' + houses[i].rent + ' </h5>'
+  + '<h5> Bedrooms :  ' + houses[i].bedroom + ' </h5>'
+  + '<h5> Bathrooms :  ' + houses[i].bathroom + ' </h5>'
+  + '<h5> Parking :  ' + houses[i].parking + ' </h5>'
+  + '<h5> Furnishing :  ' + houses[i].furnishing + ' </h5>'
+  + '<h5> Couple :  ' + houses[i].couple + ' </h5>'
+  + '<h5> Availability :  ' + houses[i].availability + ' </h5>'
+  + '</div>'
+  + '</div>'
+  + '</div>'
+  + '</div>';
+  console.log(house[i].bedroom);
+}
+
+
+
+
 
 document.getElementById('showHouses').addEventListener('click', function(){
   allHouses();
